@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Trivia Mason
+
+Trivia Mason is a game where a leader previews a question, gives other players hints,
+and allows them to cram for a period of time before answering.
+The leader is rewarded for giving a hint that is neither too helpful nor too cryptic.
+The players are rewarded for answering correctly.
+
+## About
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app),
+using the [Redux](https://redux.js.org/)
+and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
 
