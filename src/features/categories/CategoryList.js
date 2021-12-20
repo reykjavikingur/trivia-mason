@@ -28,43 +28,35 @@ export default function CategoryList() {
     }, [dispatch]);
 
     return (
-        <Container fluid className="mb-4">
-            <Row>
-                <Col>
-                    <Form.Group as={Row} controlId={"triviaCategory"}>
-                        <Form.Label column sm={2}>
-                            Category
-                            {loading ?
-                                <Spinner animation="border" role="status">
-                                    <span className="visually-hidden">Loading...</span>
-                                </Spinner>
-                                :
-                                null
-                            }
-                        </Form.Label>
-                        <Col sm={10}>
-                            <Form.Select aria-label="Trivia Category"
-                                defaultValue={chosenId}
-                                onChange={onSelect}
-                            >
-                                {list ?
-                                    <>
-                                        <option value={-1}>(all)</option>
-                                        {
-                                            list.map((category) => (
-                                                <option key={category.id}
-                                                    value={category.id}>{category.name}</option>
-                                            ))
-                                        }
-                                    </>
-                                    :
-                                    null
-                                }
-                            </Form.Select>
-                        </Col>
-                    </Form.Group>
-                </Col>
-            </Row>
-        </Container>
+        <Form.Group controlId={"triviaCategory"}>
+            <Form.Label>
+                Category:
+                {loading ?
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    :
+                    null
+                }
+            </Form.Label>
+            <Form.Select aria-label="Trivia Category"
+                defaultValue={chosenId}
+                onChange={onSelect}
+            >
+                {list ?
+                    <>
+                        <option value={-1}>(any)</option>
+                        {
+                            list.map((category) => (
+                                <option key={category.id}
+                                    value={category.id}>{category.name}</option>
+                            ))
+                        }
+                    </>
+                    :
+                    null
+                }
+            </Form.Select>
+        </Form.Group>
     );
 }

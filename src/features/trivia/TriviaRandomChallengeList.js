@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {getChallenges, selectChallenges, selectChallengesLoading} from "./triviaSlice";
@@ -6,14 +6,22 @@ import TriviaTable from "../../components/TriviaTable";
 
 export default function TriviaRandomChallengeList() {
 
+    const amount = 10;
+
     const dispatch = useDispatch();
 
     const challenges = useSelector(selectChallenges);
 
     const challengesLoading = useSelector(selectChallengesLoading);
 
+    useEffect(() => {
+        if (!challenges && !challengesLoading) {
+            dispatch(getChallenges({ amount }));
+        }
+    }, [dispatch, challenges, challengesLoading]);
+
     const handleClick = useCallback(() => {
-        dispatch(getChallenges({ amount: 10 }));
+        dispatch(getChallenges({ amount }));
     }, [dispatch]);
 
     return (
