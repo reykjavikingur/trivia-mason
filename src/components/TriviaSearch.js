@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
 import TriviaTable from "./TriviaTable";
-import CategorySelector from "./CategorySelector";
+import CategoryList from "../features/categories/CategoryList";
 
 export default function TriviaSearch(props) {
 
     const [items, setItems] = useState();
-    const [categories, setCategories] = useState();
 
     useEffect(() => {
         fetch("https://opentdb.com/api.php?amount=10")
@@ -16,23 +15,12 @@ export default function TriviaSearch(props) {
             })
     }, []);
 
-    useEffect(() => {
-        fetch("https://opentdb.com/api_category.php")
-            .then(res => res.json())
-            .then(r => {
-                console.log("categories", r);
-                setCategories(r.trivia_categories);
-            })
-    }, []);
-
     return (
         <>
             <h2>Trivia Search</h2>
-            {categories ?
-                <CategorySelector categories={categories}></CategorySelector>
-                :
-                <div>Loading categories...</div>
-            }
+
+            <CategoryList />
+
             {items ?
                 <TriviaTable items={items}></TriviaTable>
                 :
