@@ -3,6 +3,7 @@ import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {getChallenges, selectChallenges, selectChallengesLoading} from "./triviaSlice";
 import TriviaTable from "../../components/TriviaTable";
+import TriviaChallenge from "./TriviaChallenge";
 
 export default function TriviaRandomChallengeList() {
 
@@ -44,13 +45,17 @@ export default function TriviaRandomChallengeList() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
-                            {challenges ?
-                                <TriviaTable items={challenges} />
-                                :
-                                null
-                            }
-                        </Col>
+                        {challenges ?
+                            challenges.map((challenge, i) => (
+                                <Col key={i} xs={12} sm={12} md={6} lg={4} xl={3}
+                                    className="mb-3 align-content-stretch"
+                                >
+                                    <TriviaChallenge challenge={challenge} />
+                                </Col>
+                            ))
+                            :
+                            null
+                        }
                     </Row>
                 </>
 
