@@ -33,7 +33,7 @@ export default function TriviaChallenge({ challenge }) {
                 <Card.Title>
                     <span dangerouslySetInnerHTML={{ __html: challenge.question }}></span>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text as={'div'}>
                     <ul>
                         {options.map((option, i) => (
                             <li key={i} dangerouslySetInnerHTML={{ __html: option }}
@@ -41,13 +41,13 @@ export default function TriviaChallenge({ challenge }) {
                             ></li>
                         ))}
                     </ul>
-                    <div className="d-flex justify-content-end">
-                        <Button size="sm"
-                            onMouseDown={() => setShowingCorrect(true)}
-                            onMouseUp={() => setShowingCorrect(false)}
-                        >see answer</Button>
-                    </div>
                 </Card.Text>
+                <div className="d-flex justify-content-end">
+                    <Button size="sm"
+                        onMouseDown={() => setShowingCorrect(true)}
+                        onMouseUp={() => setShowingCorrect(false)}
+                    >see answer</Button>
+                </div>
             </Card.Body>
         </Card>
     );

@@ -2,7 +2,6 @@ import React, {useCallback, useEffect} from "react";
 import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {getChallenges, selectChallenges, selectChallengesLoading} from "./triviaSlice";
-import TriviaTable from "../../components/TriviaTable";
 import TriviaChallenge from "./TriviaChallenge";
 
 export default function TriviaRandomChallengeList() {
