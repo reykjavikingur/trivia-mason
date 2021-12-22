@@ -2,9 +2,10 @@ import React from "react";
 import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import "./App.css";
 import TriviaSearch from "./components/TriviaSearch";
-import {Col, Container, Nav, Row} from "react-bootstrap";
+import {Badge, Col, Container, Nav, Row} from "react-bootstrap";
 import TriviaScore from "./components/TriviaScore";
 import TriviaTimer from "./components/TriviaTimer";
+import TimerBadge from "./features/timer/TimerBadge";
 
 function App() {
     return (
@@ -20,7 +21,10 @@ function App() {
                                 <Nav.Link href={"#/score"}>Score</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href={"#/timer"}>Timer</Nav.Link>
+                                <Nav.Link href={"#/timer"}>
+                                    Timer&nbsp;
+                                    <TimerBadge />
+                                </Nav.Link>
                             </Nav.Item>
                         </Nav>
 

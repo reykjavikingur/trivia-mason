@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import TimerForm from "../features/timer/TimerForm";
 
 export default function TriviaTimer() {
     return (
-        <div>
-            TIMER
-        </div>
+        <TimerForm />
     )
 }
