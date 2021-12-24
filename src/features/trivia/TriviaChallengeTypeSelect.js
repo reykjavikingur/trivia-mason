@@ -2,6 +2,7 @@ import React, {useCallback} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {chooseChallengeType, selectChallengeType} from "./triviaSlice";
 import {Form} from "react-bootstrap";
+import TriviaFilterSelect from "../../components/TriviaFilterSelect";
 
 export default function TriviaChallengeTypeSelect() {
     const options = ["multiple", "boolean"];
@@ -11,10 +12,7 @@ export default function TriviaChallengeTypeSelect() {
     }, [dispatch]);
     const type = useSelector(selectChallengeType);
     return (
-        <Form.Group controlId={"trivialChallengeType"}>
-            <Form.Label>
-                Type:
-            </Form.Label>
+        <TriviaFilterSelect controlId={"trivialChallengeType"} label={"Type:"}>
             <Form.Select aria-label="Trivia Challenge Type"
                 value={type}
                 onChange={handleChange}
@@ -24,6 +22,6 @@ export default function TriviaChallengeTypeSelect() {
                     <option key={option} value={option}>{option}</option>
                 ))}
             </Form.Select>
-        </Form.Group>
+        </TriviaFilterSelect>
     );
 }

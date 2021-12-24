@@ -25,7 +25,7 @@ export default function TriviaRandomChallengeList() {
     }, [dispatch]);
 
     return (
-        <Container fluid>
+        <>
             {challengesLoading ?
 
                 <Spinner animation="border" role="status">
@@ -36,11 +36,8 @@ export default function TriviaRandomChallengeList() {
 
                 <>
                     <Row>
-                        <Col>
-                            <h2>Challenges</h2>
-                        </Col>
-                        <Col>
-                            <Button onClick={handleClick}>Refresh</Button>
+                        <Col className="mb-2 text-center">
+                            <Button size={"lg"} onClick={handleClick}>Refresh</Button>
                         </Col>
                     </Row>
                     <Row>
@@ -59,6 +56,6 @@ export default function TriviaRandomChallengeList() {
                 </>
 
             }
-        </Container>
+        </>
     );
 }

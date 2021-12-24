@@ -9,7 +9,7 @@ export default function TriviaSearch(props) {
 
     return (
         <>
-            <h2>Trivia Search</h2>
+            <h2>Questions</h2>
             <Row className="mb-3">
                 <Col md={4}>
                     <CategoryList />

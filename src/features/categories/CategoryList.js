@@ -7,7 +7,8 @@ import {
     selectCategoriesLoading,
     selectChosenCategoryId
 } from "./categoriesSlice";
-import {Button, Col, Container, Form, Row, Spinner} from "react-bootstrap";
+import {Form, Spinner} from "react-bootstrap";
+import TriviaFilterSelect from "../../components/TriviaFilterSelect";
 
 export default function CategoryList() {
     const dispatch = useDispatch();
@@ -23,22 +24,19 @@ export default function CategoryList() {
 
     const onSelect = useCallback((event) => {
         const id = parseInt(event.target.value);
-        console.log('choosing category id', id);
+        console.log("choosing category id", id);
         dispatch(chooseCategoryId(id));
     }, [dispatch]);
 
     return (
-        <Form.Group controlId={"triviaCategory"}>
-            <Form.Label>
-                Category:
-                {loading ?
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                    :
-                    null
-                }
-            </Form.Label>
+        <TriviaFilterSelect controlId={"triviaCategory"} label={"Category:"}>
+            {loading ?
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+                :
+                null
+            }
             <Form.Select aria-label="Trivia Category"
                 defaultValue={chosenId}
                 onChange={onSelect}
@@ -57,6 +55,6 @@ export default function CategoryList() {
                     null
                 }
             </Form.Select>
-        </Form.Group>
+        </TriviaFilterSelect>
     );
 }

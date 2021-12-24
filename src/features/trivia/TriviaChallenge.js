@@ -24,16 +24,13 @@ export default function TriviaChallenge({ challenge }) {
     return (
         <Card className={classNames("h-100", {})}>
             <Card.Body>
-                <Card.Subtitle>
+                <Card.Subtitle className="mb-1 text-muted">
                     {challenge.category}
-                    &nbsp;
-                    <Badge pill
-                        bg={getDifficultyBG(challenge.difficulty)}>{challenge.difficulty}</Badge>
                 </Card.Subtitle>
                 <Card.Title>
                     <span dangerouslySetInnerHTML={{ __html: challenge.question }}></span>
                 </Card.Title>
-                <Card.Text as={'div'}>
+                <Card.Text as={"div"}>
                     <ul>
                         {options.map((option, i) => (
                             <li key={i} dangerouslySetInnerHTML={{ __html: option }}
@@ -42,12 +39,19 @@ export default function TriviaChallenge({ challenge }) {
                         ))}
                     </ul>
                 </Card.Text>
-                <div className="d-flex justify-content-end">
+                <div className="d-flex">
+
                     <Button size="sm"
                         onMouseDown={() => setShowingCorrect(true)}
                         onMouseUp={() => setShowingCorrect(false)}
                     >see answer</Button>
+
                 </div>
+                <div className="d-flex justify-content-end">
+                    <Badge pill
+                        bg={getDifficultyBG(challenge.difficulty)}>{challenge.difficulty}</Badge>
+                </div>
+
             </Card.Body>
         </Card>
     );

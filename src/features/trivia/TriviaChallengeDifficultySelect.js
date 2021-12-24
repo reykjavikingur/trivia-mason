@@ -1,7 +1,8 @@
 import React, {useCallback} from "react";
-import {Col, Form, Row} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {chooseChallengeDifficulty, selectChallengeDifficulty} from "./triviaSlice";
+import TriviaFilterSelect from "../../components/TriviaFilterSelect";
 
 export default function TriviaChallengeDifficultySelect() {
     const dispatch = useDispatch();
@@ -11,10 +12,8 @@ export default function TriviaChallengeDifficultySelect() {
         dispatch(chooseChallengeDifficulty(event.target.value));
     }, [dispatch]);
     return (
-        <Form.Group controlId={"trivialChallengeDifficulty"}>
-            <Form.Label>
-                Difficulty:
-            </Form.Label>
+        <TriviaFilterSelect controlId={"trivialChallengeDifficulty"} label={"Difficulty:"}>
+
             <Form.Select aria-label="Trivia Challenge Difficulty"
                 value={difficulty}
                 onChange={handleChange}
@@ -24,6 +23,7 @@ export default function TriviaChallengeDifficultySelect() {
                     <option key={option} value={option}>{option}</option>
                 ))}
             </Form.Select>
-        </Form.Group>
+
+        </TriviaFilterSelect>
     );
 }
