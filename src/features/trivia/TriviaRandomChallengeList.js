@@ -1,12 +1,12 @@
 import React, {useCallback, useEffect} from "react";
-import {Button, Col, Container, Row, Spinner} from "react-bootstrap";
+import {Button, Col, Row, Spinner} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {getChallenges, selectChallenges, selectChallengesLoading} from "./triviaSlice";
 import TriviaChallenge from "./TriviaChallenge";
 
 export default function TriviaRandomChallengeList() {
 
-    const amount = 10;
+    const amount = 1;
 
     const dispatch = useDispatch();
 
