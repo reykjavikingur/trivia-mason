@@ -7,7 +7,7 @@ import {
     setTimer,
     startTimer
 } from "./timerSlice";
-import {Button} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import TimerText from "./TimerText";
 
 /**
@@ -26,33 +26,47 @@ export default function TimerForm() {
 
     return (
         <>
-            <div className="d-flex my-1">
-                <Button
-                    onClick={() => updateCountdownSeconds(-15)}
-                    disabled={countingDown}
-                >-15s</Button>
-                <div className="lead font-monospace">
-                    &nbsp;
-                    <TimerText />
-                    &nbsp;
-                </div>
-                <Button
-                    onClick={() => updateCountdownSeconds(15)}
-                    disabled={countingDown}
-                >+15s</Button>
-            </div>
-            <div className="d-flex my-1">
-
-                <Button
-                    onClick={() => dispatch(startTimer())}
-                    disabled={countingDown}
-                >start</Button>
-
-                <Button
-                    onClick={() => dispatch(clearTimer())}
-                >clear</Button>
-
-            </div>
+            <Row>
+                <Col>
+                    <h2>Timer</h2>
+                </Col>
+            </Row>
+            <Row className={"my-5"}>
+                <Col className={"d-flex justify-content-end"}>
+                    <Button
+                        onClick={() => updateCountdownSeconds(-15)}
+                        disabled={countingDown}
+                    >-15s</Button>
+                </Col>
+                <Col className={"d-flex justify-content-center"}>
+                    <div className="lead font-monospace">
+                        &nbsp;
+                        <TimerText />
+                        &nbsp;
+                    </div>
+                </Col>
+                <Col className={"d-flex justify-content-start"}>
+                    <Button
+                        onClick={() => updateCountdownSeconds(15)}
+                        disabled={countingDown}
+                    >+15s</Button>
+                </Col>
+            </Row>
+            <Row className={"my-5"}>
+                <Col className={"d-flex justify-content-end"}>
+                    <Button
+                        onClick={() => dispatch(startTimer())}
+                        disabled={countingDown}
+                    >start</Button>
+                </Col>
+                <Col className="d-flex justify-content-between">
+                </Col>
+                <Col className={"d-flex justify-content-start"}>
+                    <Button
+                        onClick={() => dispatch(clearTimer())}
+                    >clear</Button>
+                </Col>
+            </Row>
         </>
     )
 }
