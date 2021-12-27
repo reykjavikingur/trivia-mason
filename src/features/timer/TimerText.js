@@ -16,5 +16,9 @@ export default function TimerText() {
         return min + ":" + sec;
     }, []);
 
-    return formatTime(countdownSeconds);
+    return (
+        <>
+            {formatTime(countdownSeconds)}
+        </>
+    );
 }

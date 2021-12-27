@@ -16,7 +16,7 @@ export default function PlayerScoreboard() {
     const adjustPlayerScore = useCallback((player, delta) => {
         const score = playerScores[player];
         dispatch(setPlayerScore({ name: player, score: score + delta }));
-    }, [playerScores]);
+    }, [dispatch, playerScores]);
 
     return (
         <>
