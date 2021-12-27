@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from "react";
-import {Badge, Button, Card, Col, Row} from "react-bootstrap";
+import {Badge, Button, Card} from "react-bootstrap";
 
 const classNames = require("classnames");
 
@@ -42,9 +42,10 @@ export default function TriviaChallenge({ challenge }) {
                 <div className="d-flex">
 
                     <Button size="sm"
-                        onMouseDown={() => setShowingCorrect(true)}
-                        onMouseUp={() => setShowingCorrect(false)}
-                    >see answer</Button>
+                        onClick={() => setShowingCorrect(!showingCorrect)}
+                    >
+                        {showingCorrect ? "hide answer" : "show answer"}
+                    </Button>
 
                 </div>
                 <div className="d-flex justify-content-end">
