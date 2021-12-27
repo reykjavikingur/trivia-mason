@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ab0dc6f.css",
-    "main.js": "/static/js/main.d5a5b232.js",
-    "index.html": "/index.html",
-    "main.0ab0dc6f.css.map": "/static/css/main.0ab0dc6f.css.map",
-    "main.d5a5b232.js.map": "/static/js/main.d5a5b232.js.map"
+    "main.css": "/trivia-mason/static/css/main.0ab0dc6f.css",
+    "main.js": "/trivia-mason/static/js/main.d5a5b232.js",
+    "index.html": "/trivia-mason/index.html",
+    "main.0ab0dc6f.css.map": "/trivia-mason/static/css/main.0ab0dc6f.css.map",
+    "main.d5a5b232.js.map": "/trivia-mason/static/js/main.d5a5b232.js.map"
   },
   "entrypoints": [
     "static/css/main.0ab0dc6f.css",
