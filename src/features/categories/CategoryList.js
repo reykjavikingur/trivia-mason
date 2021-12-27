@@ -24,7 +24,6 @@ export default function CategoryList() {
 
     const onSelect = useCallback((event) => {
         const id = parseInt(event.target.value);
-        console.log("choosing category id", id);
         dispatch(chooseCategoryId(id));
     }, [dispatch]);
 
