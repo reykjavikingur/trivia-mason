@@ -12,15 +12,15 @@ import TriviaFilterSelect from "../../components/TriviaFilterSelect";
 
 export default function CategoryList() {
     const dispatch = useDispatch();
-    const loading = useSelector < Boolean > (selectCategoriesLoading);
+    const loading = useSelector(selectCategoriesLoading);
     const list = useSelector(selectCategoriesList);
-    const chosenId = useSelector < Number > (selectChosenCategoryId);
+    const chosenId = useSelector(selectChosenCategoryId);
 
     useEffect(() => {
         if (!list && !loading) {
             dispatch(loadCategories());
         }
-    }, [loading, list]);
+    }, [dispatch, loading, list]);
 
     const onSelect = useCallback((event) => {
         const id = parseInt(event.target.value);
@@ -38,7 +38,7 @@ export default function CategoryList() {
                 null
             }
             <Form.Select aria-label="Trivia Category"
-                defaultValue={chosenId}
+                value={chosenId}
                 onChange={onSelect}
             >
                 {list ?
